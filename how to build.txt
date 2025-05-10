@@ -1,0 +1,14 @@
+1. Get ubuntu 22.04 installed on VM with 4GB RAM and 25GB of HD.
+2. Get sources into "/home/user1/folder1"
+3. Install dependencies.
+    sudo apt-get install libssl-dev
+    sudo apt-get install openjdk-21-jdk
+    sudo apt-get install maven
+4. cd "/home/user1/folder1"  
+5. . ./build.sh
+6. "ls ./Release" to see binaries.
+
+
+
+
+

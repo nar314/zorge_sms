@@ -1,0 +1,23 @@
+// Globals.h
+
+#ifndef CORE_INCLUDES_GLOBALS_H_
+#define CORE_INCLUDES_GLOBALS_H_
+
+#define MAX_DIGITS_IN_NUMBER 	16
+#define MIN_DIGITS_IN_NUMBER 	3
+
+#define MIN_DIGITS_IN_PIN 		3
+#define MAX_DIGITS_IN_PIN 		64
+
+#define MAX_DEVICES_PER_NUMBER	16
+#define MIN_DIGITS_IN_DEVICE	3
+#define MAX_DIGITS_IN_DEVICE	256
+
+#define MAX_MSG_IN_BLOCK		1024
+
+//#define MIN_MSG_LEN_BYTES		(-1)
+#define MAX_MSG_LEN_BYTES		4096 // 4 KB
+
+#define DEVICE_PREFIX 			"d_"
+#define ZSMS_STORAGE_PATH		"ZSMS_STORAGE_PATH"
+#endif

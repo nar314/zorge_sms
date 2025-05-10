@@ -1,0 +1,100 @@
+# Make file to build binaries in release mode.
+
+INCLUDES=-I../Core/Includes/
+OUT=./Build/Release/
+OPT=-Wall -c -O3 $(INCLUDES)
+
+OBJ_CORE=Account.o AccountCache.o AccountLocker.o BlocksCache.o CoderRSA.o CoderAES.o CoderAESPool.o CoderBF.o Config.o MemBuffer.o MsgBlock.o Storage.o StrUtils.o SysUtils.o ZorgeError.o ZorgeMutex.o ZorgeString.o ZorgeThread.o ZorgeTimer.o
+
+
+OBJ_CORE_LINK=$(OUT)Account.o $(OUT)AccountCache.o $(OUT)AccountLocker.o $(OUT)BlocksCache.o $(OUT)CoderRSA.o $(OUT)CoderAES.o $(OUT)CoderAESPool.o $(OUT)CoderBF.o $(OUT)Config.o $(OUT)MemBuffer.o $(OUT)MsgBlock.o $(OUT)Storage.o $(OUT)StrUtils.o $(OUT)SysUtils.o $(OUT)ZorgeError.o $(OUT)ZorgeMutex.o $(OUT)ZorgeString.o $(OUT)ZorgeThread.o $(OUT)ZorgeTimer.o
+
+
+OBJ_ZSS=Test.o Test_Invalid.o Test_Thread.o zss.o
+OBJ_ZSS_LINK=$(OUT)Test.o $(OUT)Test_Invalid.o $(OUT)Test_Thread.o $(OUT)zss.o
+
+all: zss
+	@echo "\nChecking executable..."
+	@ls -la $(OUT)zss
+	
+zss: $(OBJ_CORE) $(OBJ_ZSS)
+	@echo "\nLinking..."
+	g++ -o $(OUT)zss $(OBJ_CORE_LINK) $(OBJ_ZSS_LINK)
+
+# -------------------- Core --------------------
+Account.o: 
+	g++ $(OPT) ../Core/Account.cpp -o $(OUT)Account.o
+
+AccountCache.o: 
+	g++ $(OPT) ../Core/AccountCache.cpp -o $(OUT)AccountCache.o
+
+AccountLocker.o: 
+	g++ $(OPT) ../Core/AccountLocker.cpp -o $(OUT)AccountLocker.o
+
+BlocksCache.o: 
+	g++ $(OPT) ../Core/BlocksCache.cpp -o $(OUT)BlocksCache.o
+
+CoderRSA.o: 
+	g++ $(OPT) ../Core/CoderRSA.cpp -o $(OUT)CoderRSA.o
+
+CoderAES.o: 
+	g++ $(OPT) ../Core/CoderAES.cpp -o $(OUT)CoderAES.o
+
+CoderAESPool.o: 
+	g++ $(OPT) ../Core/CoderAESPool.cpp -o $(OUT)CoderAESPool.o
+
+CoderBF.o: 
+	g++ $(OPT) ../Core/CoderBF.cpp -o $(OUT)CoderBF.o
+
+Config.o: 
+	g++ $(OPT) ../Core/Config.cpp -o $(OUT)Config.o
+
+MemBuffer.o: 
+	g++ $(OPT) ../Core/MemBuffer.cpp -o $(OUT)MemBuffer.o
+
+MsgBlock.o: 
+	g++ $(OPT) ../Core/MsgBlock.cpp -o $(OUT)MsgBlock.o
+
+Storage.o: 
+	g++ $(OPT) ../Core/Storage.cpp -o $(OUT)Storage.o
+
+StrUtils.o: 
+	g++ $(OPT) ../Core/StrUtils.cpp -o $(OUT)StrUtils.o
+
+SysUtils.o: 
+	g++ $(OPT) ../Core/SysUtils.cpp -o $(OUT)SysUtils.o
+
+ZorgeError.o: 
+	g++ $(OPT) ../Core/ZorgeError.cpp -o $(OUT)ZorgeError.o
+
+ZorgeMutex.o: 
+	g++ $(OPT) ../Core/ZorgeMutex.cpp -o $(OUT)ZorgeMutex.o
+
+ZorgeString.o: 
+	g++ $(OPT) ../Core/ZorgeString.cpp -o $(OUT)ZorgeString.o
+
+ZorgeThread.o: 
+	g++ $(OPT) ../Core/ZorgeThread.cpp -o $(OUT)ZorgeThread.o
+
+ZorgeTimer.o: 
+	g++ $(OPT) ../Core/ZorgeTimer.cpp -o $(OUT)ZorgeTimer.o
+
+# -------------------- zss --------------------
+Test.o: 
+	g++ $(OPT) ./src/Test.cpp -o $(OUT)Test.o
+
+Test_Invalid.o: 
+	g++ $(OPT) ./src/Test_Invalid.cpp -o $(OUT)Test_Invalid.o
+
+Test_Thread.o: 
+	g++ $(OPT) ./src/Test_Thread.cpp -o $(OUT)Test_Thread.o
+
+zss.o:
+	g++ $(OPT) ./src/zss.cpp -o $(OUT)zss.o
+
+clean:
+	@echo "Cleaning..."
+	rm -rf $(OUT)
+	mkdir -p $(OUT)
+	@echo ""	
+	
