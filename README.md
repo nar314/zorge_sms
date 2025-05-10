@@ -6,8 +6,18 @@ This is private messaging solution to send and receive short text messages.
 
 ## How to build.
 
-See [how_to_build.txt](https://github.com/nar314/zorge_sms/how_to_build.txt)
-
+See "how_to_build.txt"
+```sh
+1. Get ubuntu 22.04 installed on VM with 4GB RAM and 25GB of HD.
+2. Get sources into any folder, as example "/home/user1/folder1"
+3. Install dependencies.
+    sudo apt-get install libssl-dev
+    sudo apt-get install openjdk-21-jdk
+    sudo apt-get install maven
+4. cd "/home/user1/folder1"  
+5. . ./build.sh
+6. "ls ./Release" to see binaries.
+```
 You will get "zsd" deamon and "zsc-1.0.jar" GUI client.
 
 
