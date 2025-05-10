@@ -6,7 +6,7 @@ This is private messaging solution to send and receive short text messages.
 
 ## How to build.
 
-See [how_to_build.txt](https://github.com/nar314/how_to_build.txt)
+See [how_to_build.txt](https://github.com/nar314/zorge_sms/how_to_build.txt)
 
 You will get "zsd" deamon and "zsc-1.0.jar" GUI client.
 
